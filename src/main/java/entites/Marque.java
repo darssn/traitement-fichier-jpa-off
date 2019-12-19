@@ -5,21 +5,32 @@ import java.util.List;
 
 import javax.persistence.*;
 
+/**Represente une marque
+ * */
+
 @Entity
 @Table(name="Marque")
 public class Marque {
 	
+	/**id de la marque sur la bdd
+	 * */
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id ;
 
+	/**libelle de la marque
+	 * */
 	@Column(name="libelle")
 	private String libelle;
 	
+	/**liste de produit dont la marque correspond
+	 * */
 	@OneToMany(mappedBy="marque")
 	private List<Produit> listeP = new ArrayList<>();
 	
+	/**Constructeur
+	 * */
 	public Marque(){
 		
 	}

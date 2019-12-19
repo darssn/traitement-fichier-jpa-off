@@ -5,20 +5,26 @@ import java.util.List;
 
 import javax.persistence.*;
 
-
+/**Represente un ingredient
+ * */
 @Entity
 @Table(name="Ingredient")
 public class Ingredient {
 	
-	
+	/**id d'un ingredient sur la bdd
+	 * */
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id ;
 
+	/**libelle d'un ingredient
+	 * */
 	@Column(name="libelle")
 	private String libelle;
 	
+	/**Table de jointure avec Produit ou les ingredients sont associes a des produits
+	 * */
 	@ManyToMany
 	@JoinTable(name="Ingredient_Produit",
 		joinColumns = @JoinColumn(name="id_ingredient",referencedColumnName = "id"),
@@ -27,7 +33,8 @@ public class Ingredient {
 			)	
 	private List<Produit> listeP = new ArrayList<>();
 	
-	
+	/**Constructeur
+	 * */
 	
 	public Ingredient(){
 		

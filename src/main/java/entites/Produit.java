@@ -5,29 +5,44 @@ import java.util.List;
 
 import javax.persistence.*;
 
+/**Reprensente un produit
+ * */
 @Entity
 @Table(name="Produit")
 public class Produit {
 	
+	/**id d'un produit sur la bdd
+	 * */
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id ;
 	
+	
+	/**nom d'un produit
+	 * */
 	@Column(name="nom")
 	private String nom;
 	
+	/**score nutritionnel d'un produit
+	 * */
 	@Column(name="score_nutri")
 	private String scoreN;
 	
+	/**Categorie d'un produit represente par l'id de la categorie 
+	 * */
 	@ManyToOne()
 	@JoinColumn(name="id_cat")
 	private Categorie categorie;
 	
+	/**marque d'un produit represente par l'id de la marque
+	 * */
 	@ManyToOne()
 	@JoinColumn(name="id_marque")
 	private Marque marque;	
 	
+	/**Table de jointure avec Ingredient ou les ingredients sont associes a des produits
+	 * */
 	@ManyToMany
 	@JoinTable(name="Ingredient_Produit",
 		joinColumns = @JoinColumn(name="id_produit",referencedColumnName = "id"),
@@ -38,7 +53,8 @@ public class Produit {
 	
 	
 	
-	
+	/**Constructeur
+	 * */
 	
 	public Produit(){
 		
