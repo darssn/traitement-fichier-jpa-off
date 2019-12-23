@@ -40,7 +40,33 @@ public class Ingredient {
 		
 		
 	}
+	
+	public Ingredient(String libelle){
+		this.libelle = libelle;
+	}
 
+	
+	/** Extrait une liste de produit a partir d'une chaine de caractere
+	 * @param ligne
+	 * @return
+	 */
+	public static List<Ingredient> listeProduit(String ligne){
+	
+			
+		
+		List<Ingredient> liste = new ArrayList<>();
+		
+		String[]m = ligne.split(",");
+		
+		for(int i = 0 ; i <m.length;i++){
+			
+			liste.add(new Ingredient(m[i].trim()));
+					
+		}
+	
+		return liste;
+						
+	}
 
 
 	/**Getter

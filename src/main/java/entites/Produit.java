@@ -59,6 +59,11 @@ public class Produit {
 	public Produit(){
 		
 	}
+	
+	public Produit(String nom,String score){
+		this.nom = nom;
+		this.scoreN = score;
+	}
 
 
 

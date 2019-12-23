@@ -34,6 +34,12 @@ public class Marque {
 	public Marque(){
 		
 	}
+	
+	
+	public Marque(String libelle){
+		
+		this.libelle =libelle;
+	}
 
 	/**Getter
 	 * @return the id
